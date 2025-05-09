@@ -10,3 +10,7 @@ class Solution:
                     return False
             else:
                stack.append(c)
+        if not stack:
+            return True
+        else :
+            return False
