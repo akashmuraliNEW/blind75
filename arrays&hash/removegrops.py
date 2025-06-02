@@ -25,4 +25,12 @@ async def remove_all_members():
                 continue
 
             try:
-       
+                await app.ban_chat_member(group_id, user.id)
+                await asyncio.sleep(1)
+                await app.unban_chat_member(group_id, user.id)
+                print(f"Removed: {user.first_name} ({user.id})")
+                await asyncio.sleep(5)
+            except Exception as e:
+                print(f"Failed to remove {user.id}: {e}")
+                
+asyncio.run(remove_all_members())
